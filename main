@@ -1,0 +1,66 @@
+/*
+* This is just a redone version of my other barbell calculator project in C, but in C++ with better readability.
+*/
+
+
+#include <string>
+#include <iostream>
+#include <cmath>
+#include <stdlib.h>
+#include <algorithm>
+#include <iterator>
+
+//Function Declaration
+void percentCalOutput(int weight);
+void blank(int num);
+
+//Global Vars
+int squMax;
+int deadMax;
+int benchMax;
+
+int main(){
+
+//Main Vars;
+
+//User Input
+    std::cout << "Enter in your Squat Max: ";
+        std::cin >> squMax;
+    std::cout << "Enter in your Deadlift Max: ";
+        std::cin >> deadMax;
+    std::cout << "Enter in your Bench Max: ";
+        std::cin >> benchMax;
+
+//Clears Screen
+blank(100);
+
+//Percent Output
+    std::cout << "Squat: \n";
+        percentCalOutput(squMax);
+
+    std::cout << "Deadlift: \n";
+        percentCalOutput(deadMax);
+    
+    std::cout << "Bench: \n";
+        percentCalOutput(benchMax);
+
+
+}
+
+void percentCalOutput(int weight){
+    int i;
+
+    for(i=95; i >= 75; i -= 5){
+        int result = weight * (i/100.0);
+        std::cout << i << "%: " << result << "\n";
+    }
+    std::cout << "\n";
+}
+
+void blank(int num){
+   int i;
+   for(i=0; i<num; i++){
+      std::cout << ("\n");
+   }
+}
+
