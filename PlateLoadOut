@@ -1,0 +1,76 @@
+/*
+* Author: Tyler Scotti
+* Date: Feb 4, 2023
+* Description: This program will give the plate loadout on one side of the bar for a given weight (in lbs)
+*
+*
+*
+* Problems: Logic error for plateLoadout. Entering 385 warrants "10 10 25 25 25 25 25 25 " rather than getting the max amount of 45s, then max number of 25s, etc.
+* Thinking we subtract plate * 2 until we get lower than 50. IDK Addy has a good example on her GitHub.
+*/
+
+#include <string>
+#include <iostream>
+#include <cmath>
+#include <stdlib.h>
+#include <algorithm>
+#include <iterator>
+#include <vector>
+
+
+//Function Declaration
+void percentCalOutput(int weight);
+void blank(int num);
+void plateLoadout(int max);
+
+//Global Vars
+int max;
+
+int main(){
+
+//Main Vars;
+
+//User Input
+    std::cout << "Enter in your one-rep max: ";
+        std::cin >> max;
+
+plateLoadout(max);
+
+
+
+
+}
+
+void plateLoadout(int max){
+    std::vector<int> plates;
+    int i;
+    max -= 45;
+    while(max != 0){
+        if(max % 45 == 0){
+            max -= 90;
+            plates.push_back(45);
+        } else if(max % 25 == 0){
+            max -= 50;
+            plates.push_back(25);
+        } else if(max % 10 == 0){
+            max -= 20;
+            plates.push_back(10);
+        } else if (max % 5 == 0){
+            max -= 10;
+            plates.push_back(5);
+        }
+    }
+
+    for(i=0; i < plates.size(); i++){
+        std::cout << plates.at(i) << " ";
+    }
+}
+
+
+void blank(int num){
+   int i;
+   for(i=0; i<num; i++){
+      std::cout << ("\n");
+   }
+}
+
