@@ -29,7 +29,11 @@ int main(){
 //User Input
     std::cout << "Enter in your weight you want to load onto the bar (lbs): ";
         std::cin >> max;
-
+//Logic check for max;
+    while(max < 0){
+        std::cout << "Errr... Don't think you can have negative weight... right?\n Try again: ";
+        std::cin >> max;
+    }
 //Clears screen
 blank(100);
 
